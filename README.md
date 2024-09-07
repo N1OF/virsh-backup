@@ -1,6 +1,6 @@
 # virsh-backup
 Bash script used to pause KVM Virtual Machines, backup the .qcow2 files to a location of your choice, then restart the VM.
-This script assumes you can afford downtime on your machines, so this is recommended for enviornments where the machines can be shut down.
+This script assumes you can afford downtime on your machines, so this is recommended for environments where the machines can be shut down.
 Depending on the size of your VM Virtual Hard Disks (.qcow2 files), and where you are storing them, will dictate how long your machines will be down.
 
 The script will create the backup directory you specify in line 27 if it does not exist already, and will start a log file, as well as a verbose error file in the same directory. The script will call to virsh to pull a list of current domains (VMs), as well as whatever disks are associated with them. For each domain, virsh will shut it down, then poll every 10 seconds until virsh confirms it has been shut down. This will release the write lock on the .qcow2 file, which will allow it to be manipulated. qemu-img will do a 1:1 .qcow2 conversion, and write the second file to the backup directory you specify. Once the write is completed, virsh will call to power the domain back on.
