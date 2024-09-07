@@ -28,7 +28,7 @@ Set the "BACKUP_DIR" variable to a path of your choosing, that your user account
 Performance:
 I have 5 VMs backing up to a mounted network drive via SSHFS. Through a 1GB connection writing to a RAID1 backup machine, it took about 15 minutes to write ~40 GB of .qcow2 VHD backups. 
 
-I wrote this for my homelab setup and have this scheduled as a cron job to run in the middle of the night, as my network/services have little to no use at that time. Would not recommend in mission critical enviornments. Use at your own risk. 
+I wrote this for my homelab setup and have this scheduled as a cron job to run in the middle of the night, as my network/services have little to no use at that time. Would not recommend in mission critical environments. Use at your own risk. 
 
 Dry Run:
 I have included a second script that can be ran as a "Dry Run". This will simulate all of the steps of the regular script without actually running the commands. This will output to the console, as well as to the log file all steps with "(Dry Run)" at the beginning.
